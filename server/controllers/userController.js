@@ -161,7 +161,7 @@ const requestPasswordReset = async (req, res) => {
   console.log("user1",user)
       await user.save();
   
-      const resetUrl = `http://localhost:5173/newPassword/${resetToken}`;
+      const resetUrl = `https://finance-ms-git-main-shivam-pandeys-projects-b8c749d7.vercel.app/newPassword/${resetToken}`;
       const message = `
         You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
         Please click on the following link, or paste this into your browser to complete the process:\n\n
