@@ -86,10 +86,9 @@ export const IncomeSlice = createSlice({
 
 builder.addCase(getIncomeDetails.fulfilled,(state,action)=>{
 
-console.log("income",action.payload)
 
   if(action.payload){
-    console.log(action.payload)
+   
     state.Incomes = [...action.payload.data]
 }
 

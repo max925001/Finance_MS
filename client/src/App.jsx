@@ -9,6 +9,8 @@ import Incomes from './pages/Incomes'
 import Expenses from './pages/Expenses'
 import ResetPassword from './pages/ResetPassword'
 import SetPassword from './pages/SetPassword'
+import Dashboard from './pages/Dashboard'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -26,13 +28,11 @@ const pathWithToken = `/newPassword/${ResetPasswordToken}`;
       <Route path='/income' element={<Incomes/>}/>
       <Route path='/expenses' element={<Expenses/>}/>
       <Route path='/reset-password' element={<ResetPassword/>}/>
-      {/* <Route path='/new-password' element={<SetPassword/>}/> */}
+      <Route path='/dashboard' element={<Dashboard/>}/>
       <Route path={pathWithToken} element={<SetPassword/>}/>
       
-
-      
     </Routes>
-     {/* <Footer/> */}
+   
     </BrowserRouter>
   )
 }

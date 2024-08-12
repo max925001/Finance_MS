@@ -1,11 +1,12 @@
 import React from 'react';
-import { Line, Pie } from 'react-chartjs-2';
+import { Line, Pie, Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
+  BarElement,
   ArcElement,
   Title,
   Tooltip,
@@ -17,6 +18,7 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
+  BarElement,
   ArcElement,
   Title,
   Tooltip,
@@ -95,8 +97,30 @@ const IncomeExpenseCharts = ({ incomes, expenses }) => {
     ],
   };
 
+  // Prepare data for the bar chart
+  const barChartData = {
+    labels,
+    datasets: [
+      {
+        label: 'Income',
+        data: labels.map((day) => incomeDataByDay[day] || 0),
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Expenses',
+        data: labels.map((day) => expenseDataByDay[day] || 0),
+        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'top',
@@ -109,14 +133,17 @@ const IncomeExpenseCharts = ({ incomes, expenses }) => {
   };
 
   return (
-    <div className="dark:bg-gray-900 h-[80vh] p-4 text-gray-200">
+    <div className="dark:bg-gray-900  p-4 text-gray-200">
       <h1 className="text-3xl font-bold mb-4 text-center">Income and Expenses Dashboard</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-gray-800 p-4 rounded-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="bg-gray-800 p-4 rounded-lg h-[40vh] lg:h-[50vh]">
           <Line data={lineChartData} options={options} />
         </div>
-        <div className="bg-gray-800 p-4 rounded-lg">
+        <div className="bg-gray-800 p-4 rounded-lg h-[40vh] lg:h-[50vh]">
           <Pie data={pieChartData} options={{ ...options, maintainAspectRatio: false }} />
+        </div>
+        <div className="bg-gray-800 p-4 rounded-lg h-[40vh] lg:h-[50vh]">
+          <Bar data={barChartData} options={options} />
         </div>
       </div>
     </div>

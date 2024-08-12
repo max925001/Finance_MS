@@ -3,6 +3,7 @@ import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserDetails } from "../Redux/slices/AuthSlice";
 import { deleteExpense, getExpenseDetails } from "../Redux/slices/ExpenseSlice";
+import { Link } from "react-router-dom";
 
 function UserExpenseData() {
   // const  totalIncome  = useSelector((state) => state.auth.totalIncome);
@@ -46,9 +47,14 @@ handleExpense()
   
   return (
     <div className="w-full h-full bg-purple-300 rounded">
-      <div className="m-auto bg-white h-14 p-2 rounded-t">
+      <div className="m-auto bg-white h-14 p-2 rounded-t flex items-center justify-between ">
+        <div className="w-36 h-14 ml-1">
+          <button className="bg-gradient-to-r from-purple-400 via-blue-500 to-purple-600 w-36 h-14 text-black">
+            <Link to='/dashboard'>View DashBoard</Link>
+          </button>
+        </div>
         <h1 className="text-center text-black text-2xl">
-          Total Income :₹ <span className="text-red-600">{TotalExpenses} </span>
+          Total Expenses :₹ <span className="text-red-600">{TotalExpenses} </span>
         </h1>
       </div>
       <div className=" w-full md:w-3/4 bg-red-200  h-[600px] md:h-[60vh] m-auto relative top-5 shadow-2xl rounded">
