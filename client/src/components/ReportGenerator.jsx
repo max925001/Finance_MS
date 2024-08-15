@@ -49,7 +49,7 @@ const ReportGenerator = () => {
                         placeholder="User ID"
                         className='w-full p-2 bg-gray-700 text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
                     />
-                    <input
+                    {/* <input
                         type="date"
                         value={startDate}
                         onChange={(e) => setStartDate(e.target.value)}
@@ -60,7 +60,7 @@ const ReportGenerator = () => {
                         value={endDate}
                         onChange={(e) => setEndDate(e.target.value)}
                         className='w-full p-2 bg-gray-700 text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
-                    />
+                    /> */}
                     <select
                         value={format}
                         onChange={(e) => setFormat(e.target.value)}

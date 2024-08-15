@@ -6,8 +6,10 @@ import { generatePDF } from '../utils/generatePDF.js';
 import { generateCSV } from '../utils/generateCSV.js';
 import Expense from '../models/expensesModel.js';
 import Finance from '../models/financeModel.js';
+import User from '../models/userModel.js';
 
 export const generateReport = async (req, res,next) => {
+    console.log(req.body)
     const { username ,startDate, endDate, format } = req.body;
     // console.log(username)
 
@@ -19,19 +21,23 @@ export const generateReport = async (req, res,next) => {
     console.log(`Generating report for ${username}, from ${startDate} to ${endDate}, format: ${format}`);
 
     try {
+
+
+        const user = await User.findOne({username})
+        console.log(user)
         // Convert the dates from MM/DD/YYYY format to Date objects
-        const start = new Date(startDate);
-        const end = new Date(endDate);
+        // const start = new Date(startDate);
+        // const end = new Date(endDate);
 
         // Query the database for expenses and income within the date range
-        const expenses = await Expense.find({
-            username,
-            date: { $gte: start, $lte: end }
-        });
-        const income = await Finance.find({
-            username,
-            date: { $gte: start, $lte: end }
-        });
+        const expenses = await Expense.find(
+            {user:user._id}
+            // date: { $gte: start, $lte: end }
+        );
+        const income = await Finance.find(
+           {user:user._id}
+            // date: { $gte: start, $lte: end }
+        );
 
         console.log("Expense details:", expenses);
         console.log("Income details:", income);
