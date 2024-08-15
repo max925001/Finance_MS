@@ -32,7 +32,7 @@ await dispatch(getExpenseDetails())
 const handleExpense = async()=>{
 
    const response =await dispatch(getExpenseDetails())
-   console.log("incomeresp",response)
+   
    if(response?.payload?.success){
 
 

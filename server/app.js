@@ -6,6 +6,7 @@ import connectToDB from './config/conn.js';
 import router from './routes/userRoutes.js';
 import FinanceRouter from './routes/financeRoutes.js';
 import ExpenseRouter from './routes/expenseRoutes.js';
+import reportrouter from './routes/reportRoutes.js';
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use('/ping' ,(req,res) =>{
 app.use('/api/v1/user' , router)
 app.use('/api/v1/income',FinanceRouter)
 app.use('/api/v1/income',ExpenseRouter)
+app.use('/api/v1/report',reportrouter)
 
 
 

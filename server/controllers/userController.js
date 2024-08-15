@@ -143,7 +143,13 @@ const getUserDetails = async (req,res) =>{
 
 const requestPasswordReset = async (req, res) => {
     const {email}  = req.body;
-    console.log(email)
+    if(email!=req.user.email){
+       return res.status(400).json({
+        success:false,
+        message:"Email does not match with the user email"
+      })
+    }
+    
   
     if (!email) {
       return res.status(400).json({ success: false, message: "Email is required" });

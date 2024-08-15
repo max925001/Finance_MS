@@ -127,7 +127,7 @@ function Expenses() {
         </div>
 
         <div className="w-full bg-green-400 h-[700px] md:h-[80vh] md:w-3/4 mt-2 rounded">
-          {(isLoggedIn && expense.length !=0)?<UserExpenseData/>:"No data found"}
+          {(isLoggedIn && expense.length !=0)?<UserExpenseData/>:(<div className="text-2xl text-center"> No Data Found Please Login First <Link to="/login" className="text-blue-700">Login</Link> <link rel="stylesheet" href="" /></div>)}
         </div>
       </div>
     </div>

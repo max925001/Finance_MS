@@ -11,7 +11,7 @@ router.post('/register' , upload.single('Avatar'),  createAccount)
 router.post('/login',login)
 router.post('/logout', isLoggin, logout)
 router.get('/getUser',isLoggin,getUserDetails)
-router.post('/reset-password', requestPasswordReset);
+router.post('/reset-password', isLoggin, requestPasswordReset);
 router.post('/new-password/:token', resetPassword);
 
 
