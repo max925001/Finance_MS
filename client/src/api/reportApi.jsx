@@ -2,7 +2,7 @@
 export const generateReport = async (username, startDate, endDate, format) => {
     console.log( "generate",username,startDate,endDate,format)
     try {
-        const response = await fetch('https://finance-ms.onrender.com/api/v1/report/getreport', {
+        const response = await fetch('https://finance-ms-git-main-shivam-pandeys-projects-b8c749d7.vercel.app/api/v1/report/getreport', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
