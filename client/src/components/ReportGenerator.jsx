@@ -46,7 +46,7 @@ const ReportGenerator = () => {
                         type="text"
                         value={userId}
                         onChange={(e) => setUserId(e.target.value)}
-                        placeholder="User ID"
+                        placeholder="username"
                         className='w-full p-2 bg-gray-700 text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
                     />
                     {/* <input
